@@ -37,9 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
       body: Center(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ImageIconWidget(),
             CharacterInformationWidget(),
+            InformationPanel(),
           ],
         ),
       ),
@@ -52,10 +55,18 @@ class _MyHomePageState extends State<MyHomePage> {
 class ImageIconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      radius: 100.0,
-      backgroundImage: AssetImage("images/icons/knight.png"),
-      backgroundColor: Colors.yellow[300],
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: 70.0,
+          backgroundImage: AssetImage("images/icons/knight.png"),
+          backgroundColor: Colors.yellow[300],
+        ),
+        Text(
+          "Character name",
+          textScaleFactor: 1.8,
+        )
+      ],
     );
   }
 }
@@ -72,32 +83,42 @@ class CharacterInformationWidget extends StatelessWidget {
           ButtonsCharacterSheetWidget(
             labelText: "Ficha",
             imagePath: "images/icons/status.png",
+            function: showCharacterSheet(),
           ),
           ButtonsCharacterSheetWidget(
             labelText: "Habilidades",
             imagePath: "images/icons/book.png",
+            function: showCharacterSkills(),
           ),
           ButtonsCharacterSheetWidget(
             labelText: "Inventário",
             imagePath: "images/icons/backpack.png",
+            function: showCharacterInventory(),
           ),
         ],
       ),
     );
   }
+
+  Function showCharacterSheet() {}
+  Function showCharacterSkills() {}
+  Function showCharacterInventory() {}
 }
 
 class ButtonsCharacterSheetWidget extends StatelessWidget {
   final String labelText;
   final String imagePath;
+  final Function function;
 
   ButtonsCharacterSheetWidget(
-      {@required this.labelText, @required this.imagePath});
+      {@required this.labelText,
+      @required this.imagePath,
+      @required this.function});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () => {},
+      onPressed: () => {function},
       child: Column(
         children: <Widget>[
           Image(
@@ -107,6 +128,71 @@ class ButtonsCharacterSheetWidget extends StatelessWidget {
           Text(labelText),
         ],
       ),
+    );
+  }
+}
+
+class InformationPanel extends StatefulWidget {
+  const InformationPanel() : super();
+
+  @override
+  _InformationPanelState createState() => _InformationPanelState();
+}
+
+class _InformationPanelState extends State<InformationPanel> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 320.0,
+      width: 320.0,
+      decoration: BoxDecoration(
+        color: Colors.amber[100],
+      ),
+      child: Column(
+        children: [
+          TextCharacterSheet(text: "Nome"),
+          TextCharacterSheet(text: "Raça"),
+          TextCharacterSheet(text: "Classe"),
+          TextCharacterSheet(text: "Idade"),
+        ],
+      ),
+    );
+  }
+}
+
+class TextCharacterSheet extends StatefulWidget {
+  final String text;
+
+  const TextCharacterSheet({@required this.text});
+
+  @override
+  _TextCharacterSheetState createState() => _TextCharacterSheetState();
+}
+
+class _TextCharacterSheetState extends State<TextCharacterSheet> {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              children: [
+                Text(
+                  '${widget.text}',
+                  style: TextStyle(height: 2, fontSize: 20),
+                ),
+                Text(
+                  "Exemplo",
+                  style: TextStyle(height: 1, fontSize: 16),
+                ),
+              ],
+            )
+          ],
+        ),
+      ],
     );
   }
 }
