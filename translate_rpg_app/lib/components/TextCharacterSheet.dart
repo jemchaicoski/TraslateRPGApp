@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class TextCharacterSheet extends StatefulWidget {
+  final String title;
   final String text;
 
-  const TextCharacterSheet({@required this.text});
+  TextCharacterSheet({@required this.title, @required this.text});
 
   @override
   _TextCharacterSheetState createState() => _TextCharacterSheetState();
@@ -21,11 +22,11 @@ class _TextCharacterSheetState extends State<TextCharacterSheet> {
             Column(
               children: [
                 Text(
-                  '${widget.text}',
+                  '${widget.title}',
                   style: TextStyle(height: 2, fontSize: 20),
                 ),
                 Text(
-                  "Exemplo",
+                  widget.text,
                   style: TextStyle(height: 1, fontSize: 16),
                 ),
               ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:translate_rpg_app/views/MyHomePage.dart';
+import 'package:translate_rpg_app/pages/MyCharacterPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyCharacterPage(characterName: 'Nome'),
     );
   }
 }

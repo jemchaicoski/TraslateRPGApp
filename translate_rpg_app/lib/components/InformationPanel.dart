@@ -2,7 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:translate_rpg_app/components/TextCharacterSheet.dart';
 
 class InformationPanel extends StatefulWidget {
-  const InformationPanel() : super();
+  const InformationPanel(
+      {@required this.name,
+      @required this.race,
+      @required this.job,
+      @required this.age})
+      : super();
+
+  final name;
+  final race;
+  final job;
+  final age;
 
   @override
   _InformationPanelState createState() => _InformationPanelState();
@@ -16,13 +26,14 @@ class _InformationPanelState extends State<InformationPanel> {
       width: 320.0,
       decoration: BoxDecoration(
         color: Colors.amber[100],
+        borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
       child: Column(
         children: [
-          TextCharacterSheet(text: "Nome"),
-          TextCharacterSheet(text: "Raça"),
-          TextCharacterSheet(text: "Classe"),
-          TextCharacterSheet(text: "Idade"),
+          TextCharacterSheet(title: "Nome", text: widget.name),
+          TextCharacterSheet(title: "Raça", text: widget.race),
+          TextCharacterSheet(title: "Classe", text: widget.job),
+          TextCharacterSheet(title: "Idade", text: widget.age),
         ],
       ),
     );

@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:translate_rpg_app/components/CharacterInformationWidget.dart';
+import 'package:translate_rpg_app/components/ButtonsRow.dart';
 import 'package:translate_rpg_app/components/ImageIconWidget.dart';
 import 'package:translate_rpg_app/components/InformationPanel.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class MyCharacterPage extends StatefulWidget {
+  MyCharacterPage({Key key, this.characterName}) : super(key: key);
 
-  final String title;
+  final String characterName;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyCharacterPageState createState() => _MyCharacterPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyCharacterPageState extends State<MyCharacterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red[800],
-        title: Text('Compêndio Errante'),
+        title: Text(widget.characterName),
       ),
 
       body: Center(
@@ -26,9 +26,14 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ImageIconWidget(),
-            CharacterInformationWidget(),
-            InformationPanel(),
+            ImageIconWidget(name: widget.characterName),
+            ButtonsRow(),
+            InformationPanel(
+              name: "Nome",
+              age: "Idade",
+              job: "Classe",
+              race: "Raça",
+            ),
           ],
         ),
       ),

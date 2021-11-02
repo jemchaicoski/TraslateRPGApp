@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ImageIconWidget extends StatelessWidget {
+  final name;
+
+  ImageIconWidget({@required this.name});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -11,7 +15,7 @@ class ImageIconWidget extends StatelessWidget {
           backgroundColor: Colors.yellow[300],
         ),
         Text(
-          "Nome",
+          this.name,
           textScaleFactor: 1.8,
         )
       ],

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ButtonsCharacterSheetWidget extends StatelessWidget {
+class ButtonCharacterSheetWidget extends StatelessWidget {
   final String labelText;
   final String imagePath;
   final Function function;
 
-  ButtonsCharacterSheetWidget(
+  ButtonCharacterSheetWidget(
       {@required this.labelText,
       @required this.imagePath,
       @required this.function});
