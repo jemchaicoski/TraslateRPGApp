@@ -21,7 +21,7 @@ class _MyCharacterPageState extends State<MyCharacterPage> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.red[800],
+          backgroundColor: Colors.blue,
           title: Text(widget.characterName),
         ),
         body: Column(

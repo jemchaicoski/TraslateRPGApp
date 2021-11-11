@@ -11,8 +11,7 @@ class ImageIconWidget extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 70.0,
-          backgroundImage: AssetImage("images/icons/knight.png"),
-          backgroundColor: Colors.yellow[300],
+          backgroundImage: AssetImage("images/icons/guardian.png"),
         ),
         Text(
           this.name,
