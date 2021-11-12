@@ -1,3 +1,6 @@
+import 'package:translate_rpg_app/models/Feature.dart';
+import 'package:translate_rpg_app/models/Trait.dart';
+
 import 'classes/Class.dart';
 import 'Item.dart';
 

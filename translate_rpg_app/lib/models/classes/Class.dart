@@ -1,6 +1,6 @@
 abstract class Class {
-  String name;
-  int level;
+  String className;
+  int classLevel;
   int hitDie;
   List<String> proficiencies;
   List proficienciesChoices;
