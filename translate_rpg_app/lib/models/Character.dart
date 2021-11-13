@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:translate_rpg_app/models/Feature.dart';
 import 'package:translate_rpg_app/models/Trait.dart';
 
@@ -9,14 +10,23 @@ class Character {
   Class job;
   String race;
   int level;
-  int proficiencyBonus;
   int age;
+  List status = [
+    ["Força", 10],
+    ["Destreza", 10],
+    ["Constituição", 10],
+    ["Inteligência", 10],
+    ["Sabedoria", 10],
+    ["Carisma", 10]
+  ];
+  String background;
+  int proficiencyBonus;
   int speed;
   int armorClass;
-  String background;
-  List status;
   List<Item> inventory;
   List<String> proficiencies;
   List<Feature> features;
   List<Trait> traits;
+
+  Character({@required this.name});
 }
