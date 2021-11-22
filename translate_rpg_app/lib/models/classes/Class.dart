@@ -5,7 +5,7 @@ class Class {
   int hitDie;
   List proficiencies;
   List proficienciesChoices;
-  List savingthrows;
+  List savingThrows;
   List startingEquipament;
   List startingEquipamentOptions;
 
@@ -14,7 +14,7 @@ class Class {
     @required this.hitDie,
     @required this.proficiencies,
     @required this.proficienciesChoices,
-    @required this.savingthrows,
+    @required this.savingThrows,
     @required this.startingEquipament,
     @required this.startingEquipamentOptions,
   });
@@ -25,7 +25,7 @@ class Class {
         hitDie: json["hit_die"] as int,
         proficiencies: json["proficiencies"] as List,
         proficienciesChoices: json["proficiency_choices"] as List,
-        savingthrows: json["saving_throws"] as List,
+        savingThrows: json["saving_throws"] as List,
         startingEquipament: json["starting_equipment"] as List,
         startingEquipamentOptions: json["starting_equipment_options"] as List);
   }
@@ -38,7 +38,7 @@ class Class {
       hitDie: $hitDie, 
       proficiencies: $proficiencies, 
       proficienciesChoices: $proficienciesChoices, 
-      savingthrows: $savingthrows, 
+      savingthrows: $savingThrows, 
       startingEquipament: $startingEquipament, 
       startingEquipamentOptions: $startingEquipamentOptions
     )
