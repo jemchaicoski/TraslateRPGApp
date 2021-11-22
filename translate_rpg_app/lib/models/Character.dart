@@ -10,7 +10,6 @@ class Character {
   Class job;
   String race;
   int level;
-  int age;
   List status = [
     ["Força", 10],
     ["Destreza", 10],
@@ -19,7 +18,6 @@ class Character {
     ["Sabedoria", 10],
     ["Carisma", 10]
   ];
-  String background;
   int proficiencyBonus;
   int speed;
   int armorClass;

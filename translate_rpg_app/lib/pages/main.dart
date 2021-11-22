@@ -1,34 +1,38 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:translate_rpg_app/models/Character.dart';
 import 'package:translate_rpg_app/models/classes/Class.dart';
-import 'package:translate_rpg_app/pages/MyCharacterPage.dart';
 import 'package:translate_rpg_app/pages/CharacterListPage.dart';
-import 'package:translate_rpg_app/services/dnd5Service.dart';
+import 'package:translate_rpg_app/pages/MyCharacterPage.dart';
+import 'package:translate_rpg_app/services/Dnd5Service.dart';
 
 void main() {
   runApp(MyApp());
-  printExampleClassJson("barbarian");
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        //home: MyCharacterPage(characterName: 'Nome'),
-        home: CharacterListPage(
-          characters: [Character(name: "João")],
-        ));
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyCharacterPage(characterName: getClassDie("barbarian")),
+      // home: CharacterListPage(
+      //   characters: [],
+      // ),
+    );
   }
-}
 
-void printExampleClassJson(String className) async {
-  Dnd5Service service = new Dnd5Service();
-  var result = await service.fetchClass(className);
-  print(result);
+  String getClassDie(String className) {
+    Dnd5Service dnd5service = new Dnd5Service();
+    Future requisition = dnd5service.getClassJson(className);
+    requisition.then((data) {
+      Class classWithValuesFromApi = Class.fromJson(data);
+      debugPrint(classWithValuesFromApi.hitDie.toString());
+      return classWithValuesFromApi.hitDie.toString();
+    }, onError: (e) {
+      print(e);
+    });
+  }
 }

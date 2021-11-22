@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:http/http.dart';
 
 class Class {
   String className;
@@ -29,5 +28,20 @@ class Class {
         savingthrows: json["saving_throws"] as List,
         startingEquipament: json["starting_equipment"] as List,
         startingEquipamentOptions: json["starting_equipment_options"] as List);
+  }
+
+  @override
+  String toString() {
+    return """'
+    Class(
+      className: $className, 
+      hitDie: $hitDie, 
+      proficiencies: $proficiencies, 
+      proficienciesChoices: $proficienciesChoices, 
+      savingthrows: $savingthrows, 
+      startingEquipament: $startingEquipament, 
+      startingEquipamentOptions: $startingEquipamentOptions
+    )
+    '""";
   }
 }
