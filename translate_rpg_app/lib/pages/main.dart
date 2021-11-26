@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:translate_rpg_app/models/Character.dart';
-import 'package:translate_rpg_app/models/classes/Class.dart';
-import 'package:translate_rpg_app/pages/CharacterListPage.dart';
-import 'package:translate_rpg_app/pages/MyCharacterPage.dart';
-import 'package:translate_rpg_app/services/Dnd5Service.dart';
+import 'package:translate_rpg_app/pages/CharacterRegisterMainInformationPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,8 +13,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:
-          MyCharacterPage(characterName: Dnd5Service.getClassDie("barbarian")),
+      home: CharacterRegisterMainInformationPage(),
+      //    MyCharacterPage(characterName: Dnd5Service.getClassDie("barbarian")),
       // home: CharacterListPage(
       //   characters: [],
       // ),

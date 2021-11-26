@@ -28,7 +28,8 @@ class _MyCharacterPageState extends State<MyCharacterPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ImageIconWidget(name: widget.characterName),
+            ImageIconWidget(),
+            Text(widget.characterName),
             ButtonsRow(),
             InformationPanel(
               name: "Nome",
