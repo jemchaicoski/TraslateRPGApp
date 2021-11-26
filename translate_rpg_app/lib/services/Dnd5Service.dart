@@ -22,4 +22,17 @@ class Dnd5Service {
     var result = await _fetchClass(className);
     return result;
   }
+
+  static String getClassDie(String className) {
+    Dnd5Service dnd5service = new Dnd5Service();
+    Future requisition = dnd5service.getClassJson(className);
+    requisition.then((data) {
+      Class classWithValuesFromApi = Class.fromJson(data);
+      debugPrint(classWithValuesFromApi.hitDie.toString());
+      return classWithValuesFromApi.hitDie.toString();
+    }, onError: (e) {
+      print(e);
+    });
+    return "";
+  }
 }
