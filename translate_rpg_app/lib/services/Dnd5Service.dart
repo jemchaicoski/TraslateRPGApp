@@ -23,16 +23,16 @@ class Dnd5Service {
     return result;
   }
 
-  static String getClassDie(String className) {
+  static Future<String> getClassDie(String className) async {
     Dnd5Service dnd5service = new Dnd5Service();
     Future requisition = dnd5service.getClassJson(className);
-    requisition.then((data) {
+    await requisition.then((data) {
       Class classWithValuesFromApi = Class.fromJson(data);
       debugPrint(classWithValuesFromApi.hitDie.toString());
       return classWithValuesFromApi.hitDie.toString();
     }, onError: (e) {
       print(e);
     });
-    return "";
+    return "ERROR";
   }
 }

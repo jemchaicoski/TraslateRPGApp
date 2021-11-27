@@ -3,6 +3,7 @@ import 'package:translate_rpg_app/components/BackgroundImageWidget.dart';
 import 'package:translate_rpg_app/components/ButtonsRow.dart';
 import 'package:translate_rpg_app/components/ImageIconWidget.dart';
 import 'package:translate_rpg_app/components/InformationPanel.dart';
+import 'package:translate_rpg_app/services/Dnd5Service.dart';
 
 class MyCharacterPage extends StatefulWidget {
   MyCharacterPage({Key key, this.characterName}) : super(key: key);
@@ -32,7 +33,7 @@ class _MyCharacterPageState extends State<MyCharacterPage> {
             Text(widget.characterName),
             ButtonsRow(),
             InformationPanel(
-              name: "Nome",
+              name: widget.characterName,
               age: "Idade",
               job: "Classe",
               race: "Raça",
