@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:translate_rpg_app/pages/CharacterRegisterMainInformationPage.dart';
+import 'package:translate_rpg_app/models/Character.dart';
 import 'package:translate_rpg_app/pages/MyCharacterPage.dart';
-import 'package:translate_rpg_app/services/Dnd5Service.dart';
+import 'CharacterListPage.dart';
+import 'CharacterRegister.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  List<Character> characterList = [
+    Character(name: "João"),
+  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,13 +19,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //home: CharacterRegisterMainInformationPage(),
-      home: MyCharacterPage(
-        characterName: "Nome",
-        //home: CharacterListPage(
-        //   characters: [],
-        // ),
+      home: CharacterListPage(
+        characters: characterList,
       ),
+      routes: {
+        "/characterResgister": (context) => CharacterRegister(),
+        "/myCharacterPage": (context) => MyCharacterPage(),
+      },
     );
   }
 }

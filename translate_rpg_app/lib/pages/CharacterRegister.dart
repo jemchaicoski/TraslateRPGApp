@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:translate_rpg_app/components/BackgroundImageWidget.dart';
-import 'package:translate_rpg_app/components/CharacterMainInformationForm.dart';
+import 'package:translate_rpg_app/pages/forms/CharacterMainInformationPage.dart';
+import 'package:translate_rpg_app/pages/forms/CharacterStatusPointsForm.dart';
 import 'package:translate_rpg_app/components/ImageIconWidget.dart';
 
-class CharacterRegisterMainInformationPage extends StatefulWidget {
+class CharacterRegister extends StatefulWidget {
   @override
-  _CharacterRegisterMainInformationStatePage createState() =>
-      _CharacterRegisterMainInformationStatePage();
+  _CharacterRegisterStatePage createState() => _CharacterRegisterStatePage();
 }
 
-class _CharacterRegisterMainInformationStatePage
-    extends State<CharacterRegisterMainInformationPage> {
+class _CharacterRegisterStatePage extends State<CharacterRegister> {
   @override
   Widget build(BuildContext context) {
     return BackgroundImageWidget(
@@ -24,7 +23,8 @@ class _CharacterRegisterMainInformationStatePage
         body: Column(
           children: [
             ImageIconWidget(),
-            MainInformationForm(),
+            CharacterMainInformationPage(),
+            // CharacterStatusPointsForm()
           ],
         ),
       ),

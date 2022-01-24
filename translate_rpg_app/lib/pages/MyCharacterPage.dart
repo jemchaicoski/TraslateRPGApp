@@ -7,7 +7,6 @@ import 'package:translate_rpg_app/services/Dnd5Service.dart';
 
 class MyCharacterPage extends StatefulWidget {
   MyCharacterPage({Key key, this.characterName}) : super(key: key);
-
   final String characterName;
 
   @override

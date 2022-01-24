@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:translate_rpg_app/components/BackgroundImageWidget.dart';
 import 'package:translate_rpg_app/models/Character.dart';
+import 'package:translate_rpg_app/pages/CharacterRegister.dart';
+import 'package:translate_rpg_app/pages/MyCharacterPage.dart';
 
 class CharacterListPage extends StatefulWidget {
   CharacterListPage({Key key, this.characters}) : super(key: key);
-
-  final List<Character> characters;
+  List<Character> characters;
 
   @override
   _MyCharacterPageState createState() => _MyCharacterPageState();
@@ -27,8 +28,27 @@ class _MyCharacterPageState extends State<CharacterListPage> {
           itemBuilder: (context, index) {
             return ListTile(
               title: Text(widget.characters[index].name),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyCharacterPage(
+                        characterName: widget.characters[index].name),
+                  ),
+                );
+              },
             );
           },
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CharacterRegister()),
+            );
+          },
+          backgroundColor: Colors.blue,
+          child: const Icon(Icons.add),
         ),
       ),
     );
